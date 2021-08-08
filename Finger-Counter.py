@@ -5,6 +5,9 @@ import HandTrackingModule as htm
 cap = cv.VideoCapture(0)
 detect = htm.HandDetector(maxHands=1)
 
+# Make this True to count the left hand
+_LEFT_HAND = False
+
 # Initializing the finger tips
 tipIDs = [4, 8, 12, 16, 20]
 
@@ -31,11 +34,19 @@ while(cap.isOpened()):
         # Checking the Finger of Hand 1
         if len(lmList_1) != 0:
             fingerCheck = []
-            # For thumb
-            if lmList_1[4][1] > lmList_1[3][1]:
-                fingerCheck.append(True)
+
+            if not _LEFT_HAND:            
+                # For thumb
+                if lmList_1[4][1] > lmList_1[3][1]:
+                    fingerCheck.append(True)
+                else:
+                    fingerCheck.append(False)
             else:
-                fingerCheck.append(False)
+                # For thumb
+                if lmList_1[4][1] < lmList_1[3][1]:
+                    fingerCheck.append(True)
+                else:
+                    fingerCheck.append(False)
 
             # For other fngers
             for id in range(1, 5):
