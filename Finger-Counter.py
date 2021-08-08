@@ -20,6 +20,10 @@ while(cap.isOpened()):
 
     if isSuccess:
         frame = detect.findHands(frame)
+        
+        # Fliping the frame horrizontally
+        frame = cv.flip(frame, 1)
+
         lmList_1 = detect.findPosition(frame, handNo=0, boxDraw=False)
         fW = cap.get(3)
         fH = cap.get(4)
