@@ -7,7 +7,7 @@ Why use the traditional method to count the fingers when pointing your palm at t
 
 ## How to Finger-Counter:
 1. Have a Hand
-2. Use your Right Hand
+2. Use your Right Hand/Left Hand
 3. Point it towards the camera
 4. Fingers are displayed on bottom right
 
