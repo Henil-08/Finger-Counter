@@ -3,7 +3,7 @@ import HandTrackingModule as htm
 
 # Initializing the modules
 cap = cv.VideoCapture(0)
-detect = htm.HandDetector()
+detect = htm.HandDetector(maxHands=1)
 
 # Initializing the finger tips
 tipIDs = [4, 8, 12, 16, 20]
