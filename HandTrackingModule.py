@@ -116,3 +116,35 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+    
+sudo apt-get update
+sudo apt-get install git
+cd /home/pi
+git clone https://github.com/climberhunt/uvc-gadget.git
+    
+    
+
+[Unit]
+Description=Start pi webcam service
+
+[Service]
+ExecStart=/home/pi/piwebcam
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=piwebcam
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/uvc-gadget/
+
+[Install]
+WantedBy=basic.target
+
+
+
+cd /home/pi/uvc-gadget
+sudo cp piwebcam.service /etc/systemd/system/
+sudo systemctl enable piwebcam
+
+
+
